@@ -5,20 +5,17 @@ package com.tw.mnc;
  */
 public class Good{
     private String barcode;
-    private float price;
+    private double price;
     private String name;
 
-    public Good(String barcode,float price){
+
+    public Good(String barcode,double price){
         this.barcode = barcode;
         this.price = price;
         this.name = barcode.substring(0,4)+barcode.substring(barcode.length()-1);
     }
 
-    public String getBarcode() {
-        return barcode;
-    }
-
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
