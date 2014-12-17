@@ -6,10 +6,12 @@ package com.tw.mnc;
 public class Good{
     private String barcode;
     private float price;
+    private String name;
 
     public Good(String barcode,float price){
         this.barcode = barcode;
         this.price = price;
+        this.name = barcode.substring(0,4)+barcode.substring(barcode.length()-1);
     }
 
     public String getBarcode() {
@@ -18,5 +20,9 @@ public class Good{
 
     public float getPrice() {
         return price;
+    }
+
+    public String getName(){
+        return name;
     }
 }
