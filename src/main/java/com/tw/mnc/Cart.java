@@ -13,8 +13,10 @@ public class Cart {
     private double totalPromotionPrice;
 
     public void add(int num,Good good){
+
         GoodItem goodItem = new GoodItem(num,good);
         goodItemList.add(goodItem);
+
         updateTotalPrice();
         updatePromotionPrice();
     }
@@ -44,29 +46,22 @@ public class Cart {
 
     }
 
+//以下为打印bill
     public void printTicket(){
-        printTitle();
         printSubtotal();
-        printPriceTitle();
         printPrice();
     }
 
-    public void printTitle(){
-        System.out.println("购物明细（数量 单价 小计）");
-
-    }
-
     public void printSubtotal(){
+        System.out.println("购物明细（数量 单价 小计）");
         for(GoodItem item:goodItemList){
             System.out.println(item.good.getName()+"   "+ item.getNum()+"   "+item.good.getPrice()+"   "+item.getItemPrice());
         }
     }
 
-    public void printPriceTitle(){
-        System.out.println("总计金额（优惠前  优惠后  优惠差价）");
-    }
 
     public void printPrice(){
+        System.out.println("总计金额（优惠前  优惠后  优惠差价）");
         System.out.println((getTotalPrice()-getTotalPromotionPrice())
                 +"   "+getTotalPrice()+"   "
                 +(getTotalPrice()-getTotalPromotionPrice())+"    "+
