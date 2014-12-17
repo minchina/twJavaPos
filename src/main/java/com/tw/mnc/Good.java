@@ -4,7 +4,7 @@ package com.tw.mnc;
  * Created by minchina on 14-12-17.
  */
 public class Good{
-    private String barcode;
+    public String barcode;
     private double price;
     private String name;
 
