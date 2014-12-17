@@ -6,22 +6,17 @@ package com.tw.mnc;
 public class GoodItem{
     public int num;
     public Good good;
-    public float price;
 
     public GoodItem(int num,Good good){
         this.good = good;
         this.num = num;
     }
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
 
     public float getItemPrice(){
-        this.price = good.getPrice()*num;
-        return this.price;
+        return good.getPrice()*num;
+    }
+
+    public int getNum(){
+        return num;
     }
 }
