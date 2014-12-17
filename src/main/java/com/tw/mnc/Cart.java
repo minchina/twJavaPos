@@ -9,24 +9,39 @@ import java.util.List;
 public class Cart {
 
     private List<GoodItem> goodItemList = new ArrayList<>();
-    private float totalPrice;
+    private double totalPrice;
+    private double totalPromotionPrice;
 
     public void add(int num,Good good){
         GoodItem goodItem = new GoodItem(num,good);
         goodItemList.add(goodItem);
         updateTotalPrice();
+        updatePromotionPrice();
     }
 
-    public float getTotalPrice(){
+    public double getTotalPrice(){
         return this.totalPrice;
     }
 
+    public double getTotalPromotionPrice(){
+        return this.totalPromotionPrice;
+    }
+
     public void updateTotalPrice(){
-        float totalPrice = 0;
+        double totalPrice = 0;
         for (GoodItem goodItem : goodItemList) {
             totalPrice += goodItem.getItemPrice();
         }
         this.totalPrice = totalPrice;
+    }
+
+    public void updatePromotionPrice(){
+        double promotionPrice = 0;
+        for (GoodItem goodItem : goodItemList){
+            promotionPrice += goodItem.getItemPromotionPrice();
+        }
+        this.totalPromotionPrice = promotionPrice;
+
     }
 
     public void printTicket(){
@@ -52,6 +67,10 @@ public class Cart {
     }
 
     public void printPrice(){
-        System.out.println(totalPrice);
+        System.out.println((getTotalPrice()-getTotalPromotionPrice())
+                +"   "+getTotalPrice()+"   "
+                +(getTotalPrice()-getTotalPromotionPrice())+"    "+
+                getTotalPromotionPrice());
     }
+
 }
