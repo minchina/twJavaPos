@@ -16,16 +16,16 @@ public class Cart {
 
         GoodItem goodItem = new GoodItem(num,good);
         goodItemList.add(goodItem);
-
-        updateTotalPrice();
-        updatePromotionPrice();
+        goodItem.updateItemPromotionPrice();
     }
 
     public double getTotalPrice(){
+        updateTotalPrice();
         return this.totalPrice;
     }
 
     public double getTotalPromotionPrice(){
+        updatePromotionPrice();
         return this.totalPromotionPrice;
     }
 
@@ -55,7 +55,7 @@ public class Cart {
     public void printSubtotal(){
         System.out.println("购物明细（数量 单价 小计）");
         for(GoodItem item:goodItemList){
-            System.out.println(item.good.getName()+"   "+ item.getNum()+"   "+item.good.getPrice()+"   "+item.getItemPrice());
+            System.out.println(item.good.getName()+"   "+ item.getNum()+"   "+item.good.getPrice()+"   "+item.promotionPrice);
         }
     }
 
