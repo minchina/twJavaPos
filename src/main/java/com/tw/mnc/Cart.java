@@ -62,10 +62,10 @@ public class Cart {
 
     public void printPrice(){
         System.out.println("总计金额（优惠前  优惠后  优惠差价）");
-        System.out.println((getTotalPrice()-getTotalPromotionPrice())
+        System.out.println((getTotalPromotionPrice())
                 +"   "+getTotalPrice()+"   "
-                +(getTotalPrice()-getTotalPromotionPrice())+"    "+
-                getTotalPromotionPrice());
+                +getTotalPromotionPrice()+"    "+
+                (getTotalPrice()-getTotalPromotionPrice()));
     }
 
 }
