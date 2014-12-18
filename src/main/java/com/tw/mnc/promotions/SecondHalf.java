@@ -1,21 +1,15 @@
 package com.tw.mnc.promotions;
 
-import com.tw.mnc.Good;
-import sun.applet.Main;
-
 /**
  * Created by minchina on 14-12-17.
  */
-public class SecondHalf extends promition {
-    private int num;
-    private Good good;
+public class SecondHalf extends Promotion {
 
-    public SecondHalf(int num){
-        this.num = num;
+    public SecondHalf(){
+        super("second_half");
     }
 
-    public double getPromotionPrice(double price){
-
-        return price*num-Math.floor(num / 2)*(price/2);
+    public double getPromotionPrice(int num,double price){
+        return price-Math.floor(num/2)*(price/num/2);
     }
 }
