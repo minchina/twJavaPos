@@ -6,11 +6,11 @@ package com.tw.mnc.promotions;
 public class Discount extends promition {
     public double rate;
 
-    public Discount(Double rate){
+    public Discount(int rate){
         this.rate = rate;
     }
 
     public Double getPromotionPrice(Double price){
-        return price * (rate / 100);
+        return price * (rate/100);
     }
 }
