@@ -1,5 +1,6 @@
 package com.tw.mnc.promotions;
 
+import com.tw.mnc.Good;
 import sun.applet.Main;
 
 /**
@@ -7,6 +8,7 @@ import sun.applet.Main;
  */
 public class SecondHalf extends promition {
     private int num;
+    private Good good;
 
     public SecondHalf(int num){
         this.num = num;
