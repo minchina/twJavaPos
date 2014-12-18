@@ -11,6 +11,7 @@ public class Discount extends promition {
     }
 
     public Double getPromotionPrice(Double price){
+        System.out.println(price * (rate/100));
         return price * (rate/100);
     }
 }
