@@ -1,5 +1,6 @@
 package com.tw.mnc;
 
+import com.tw.mnc.promotions.Discount;
 import com.tw.mnc.promotions.SecondHalf;
 
 /**
@@ -13,7 +14,7 @@ public class GoodItem{
     public GoodItem(int num,Good good){
         this.good = good;
         this.num = num;
-        this.promotionPrice = 0;
+        this.promotionPrice = good.getPrice();
     }
 
     public boolean isPromotionFor(Good good,String promotionRule){
@@ -25,12 +26,19 @@ public class GoodItem{
     }
 
     public double getItemPromotionPrice(){
+        return promotionPrice;
+    }
+
+    public void updateItemPromotionPrice(){
         if (isPromotionFor(good,"second_half")){
             SecondHalf secondHalf = new SecondHalf(num);
-            this.promotionPrice = secondHalf.getPromotionPrice(good.getPrice());
+            this.promotionPrice = secondHalf.getPromotionPrice(promotionPrice);
         }
 
-        return this.promotionPrice;
+        if (isPromotionFor(good,"rating")){
+            Discount discount = new Discount(80);
+            this.promotionPrice = discount.getPromotionPrice(promotionPrice);
+        }
     }
 
     public int getNum(){
