@@ -16,13 +16,20 @@ public class GoodItem{
         this.promotionPrice = 0;
     }
 
+    public boolean isPromotionFor(Good good,String promotionRule){
+        return true;
+    }
+
     public double getItemPrice(){
         return good.getPrice()*num;
     }
 
     public double getItemPromotionPrice(){
-        SecondHalf secondHalf = new SecondHalf(num);
-        this.promotionPrice = secondHalf.getPromotionPrice(good.getPrice());
+        if (isPromotionFor(good,"second_half")){
+            SecondHalf secondHalf = new SecondHalf(num);
+            this.promotionPrice = secondHalf.getPromotionPrice(good.getPrice());
+        }
+
         return this.promotionPrice;
     }
 
