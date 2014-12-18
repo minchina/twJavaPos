@@ -1,7 +1,14 @@
 package com.tw.mnc;
 
-/**
- * Created by minchina on 14-12-17.
- */
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 public class UtilityTest {
+    @Test
+    public void should_return_a_new_object(){
+        assertThat(true,is(true));
+    }
 }

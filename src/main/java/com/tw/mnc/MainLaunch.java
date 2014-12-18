@@ -12,10 +12,10 @@ public class MainLaunch {
 
         Cart cart = new Cart();
 
-        cart.add(new GoodItem(9,apple));
-        cart.add(new GoodItem(2,strawberry));
+        cart.add(1,apple);
+        cart.add(4,strawberry);
 
-        System.out.println(cart.getTotalPrice());
+        cart.printTicket();
 
     }
 }
