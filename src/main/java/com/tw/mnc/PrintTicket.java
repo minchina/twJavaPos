@@ -24,7 +24,7 @@ public class PrintTicket {
     public void printSubtotal(){
         System.out.println("购物明细（数量 单价 小计）");
         for(GoodItem item:goodItemList){
-            System.out.println(item.good.getName()+"   "+ item.getNum()+"   "+item.good.getPrice()+"   "+item.promotionPrice);
+            System.out.println(item.good.getName()+"   "+ item.getNum()+"   "+item.good.getPrice()+"   "+item.getItemPromotionPrice());
         }
     }
 
