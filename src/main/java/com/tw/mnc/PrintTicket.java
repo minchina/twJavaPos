@@ -6,12 +6,10 @@ import java.util.List;
  * Created by minchina on 14-12-18.
  */
 public class PrintTicket {
-    private List<GoodItem> goodItemList;
     Cart cart;
 
 
-    public PrintTicket(List<GoodItem> goodItems,Cart cart){
-        this.goodItemList=goodItems;
+    public PrintTicket(Cart cart){
         this.cart = cart;
 
     }
@@ -23,17 +21,17 @@ public class PrintTicket {
 
     public void printSubtotal(){
         System.out.println("购物明细（数量 单价 小计）");
-        for(GoodItem item:goodItemList){
-            System.out.println(item.good.getName()+"   "+ item.getNum()+"   "+item.good.getPrice()+"   "+item.getItemPromotionPrice());
+        for(GoodItem item:cart.goodItemList){
+            System.out.println(item.good.getName()+"   "+ item.getNum()+"   "+(int)item.good.getPrice()+"   "+(int)item.getItemPromotionPrice());
         }
     }
 
 
     public void printPrice(){
         System.out.println("总计金额（优惠前  优惠后  优惠差价）");
-        System.out.println((cart.getTotalPromotionPrice())
-                +"   "+cart.getTotalPrice()+"   "
-                +cart.getTotalPromotionPrice()+"    "+
-                (cart.getTotalPrice()-cart.getTotalPromotionPrice()));
+        System.out.println(((int)cart.getTotalPromotionPrice())
+                +"   "+(int)cart.getTotalPrice()+"   "
+                +(int)cart.getTotalPromotionPrice()+"    "+
+                (int)(cart.getTotalPrice()-cart.getTotalPromotionPrice()));
     }
 }
