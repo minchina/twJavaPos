@@ -20,32 +20,22 @@ public class Cart {
     }
 
     public double getTotalPrice(){
-        updateTotalPrice();
-        return this.totalPrice;
-    }
-
-    public double getTotalPromotionPrice(){
-        updatePromotionPrice();
-        return this.totalPromotionPrice;
-    }
-
-    public void updateTotalPrice(){
         double totalPrice = 0;
         for (GoodItem goodItem : goodItemList) {
             totalPrice += goodItem.getItemPrice();
         }
         this.totalPrice = totalPrice;
+        return this.totalPrice;
     }
 
-    public void updatePromotionPrice(){
+    public double getTotalPromotionPrice(){
         double promotionPrice = 0;
         for (GoodItem goodItem : goodItemList){
             promotionPrice += goodItem.getItemPromotionPrice();
         }
         this.totalPromotionPrice = promotionPrice;
-
+        return this.totalPromotionPrice;
     }
-
 //以下为打印bill
     public void printTicket(){
         new PrintTicket(this).printInformation();

@@ -16,7 +16,6 @@ public class Good{
 
 
     public Good(String barcode,double price){
-//        super("noType");
         this.barcode = barcode;
         this.price = price;
         this.name = barcode.substring(0,4)+barcode.substring(barcode.length()-1);
