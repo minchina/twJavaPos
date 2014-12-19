@@ -1,6 +1,8 @@
 package com.tw.mnc;
 
 
+import com.tw.mnc.promotions.Promotion;
+
 /**
  * Created by minchina on 14-12-17.
  */
@@ -24,8 +26,8 @@ public class GoodItem{
     }
 
     public void updateItemPromotionPrice(){
-        for (int i=0;i<good.promotionList.size();i++){
-            this.promotionPrice = good.promotionList.get(i).getPromotionPrice(num,promotionPrice);
+        for (Promotion promotion:good.promotionList){
+            this.promotionPrice = promotion.getPromotionPrice(num,promotionPrice);
         }
     }
 
