@@ -9,7 +9,12 @@ public class SecondHalf extends Promotion {
         super("second_half");
     }
 
-    public double getPromotionPrice(int num,double price){
-        return price-Math.floor(num/2)*(price/num/2);
+    public double getPromotionPrice(int num, double subtotal){
+        double secondHalfAmount = Math.floor(num / 2);
+        return subtotal - secondHalfAmount * halfPrice(num, subtotal);
+    }
+
+    private double halfPrice(int num, double subtotal) {
+        return (subtotal/num/2);
     }
 }
