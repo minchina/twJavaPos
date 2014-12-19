@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Cart {
 
-    private List<GoodItem> goodItemList = new ArrayList<>();
+    public List<GoodItem> goodItemList = new ArrayList<>();
     private double totalPrice;
     private double totalPromotionPrice;
 
@@ -48,7 +48,7 @@ public class Cart {
 
 //以下为打印bill
     public void printTicket(){
-        new PrintTicket(goodItemList,this).printInformation();
+        new PrintTicket(this).printInformation();
 
     }
 }
