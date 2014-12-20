@@ -1,10 +1,10 @@
 package com.tw.mnc;
 
 import com.tw.mnc.promotions.Discount;
+import com.tw.mnc.promotions.SecondHalf;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -20,5 +20,12 @@ public class GoodTest {
         assertThat(good.promotionList.size(),is(1));
         assertThat(good.price,is(40.0));
 
+    }
+
+    @Test
+    public void should_add_success_more_than_1_promotion(){
+        Good good = new Good.Builder().name("pear").price(40).promotion(new Discount(40),new SecondHalf()).build();
+        assertThat(good.name,is("pear"));
+        assertThat(good.promotionList.size(),is(2));
     }
 }
