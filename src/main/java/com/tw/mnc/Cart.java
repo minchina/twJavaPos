@@ -9,8 +9,6 @@ import java.util.List;
 public class Cart {
 
     public List<GoodItem> goodItemList = new ArrayList<>();
-    private double totalPrice;
-    private double totalPromotionPrice;
 
     public void add(int num,Good good){
 
@@ -24,8 +22,7 @@ public class Cart {
         for (GoodItem goodItem : goodItemList) {
             totalPrice += goodItem.getItemPrice();
         }
-        this.totalPrice = totalPrice;
-        return this.totalPrice;
+        return totalPrice;
     }
 
     public double getTotalPromotionPrice(){
@@ -33,8 +30,8 @@ public class Cart {
         for (GoodItem goodItem : goodItemList){
             promotionPrice += goodItem.getItemPromotionPrice();
         }
-        this.totalPromotionPrice = promotionPrice;
-        return this.totalPromotionPrice;
+        return promotionPrice;
+
     }
 //以下为打印bill
     public void printTicket(){
