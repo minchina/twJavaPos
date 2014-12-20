@@ -4,6 +4,7 @@ import com.tw.mnc.promotions.Discount;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -11,12 +12,13 @@ import static org.junit.Assert.assertThat;
  */
 public class GoodTest {
     @Test
-    public void should_add_promotion_to_good(){
-        Good good = new Good("ITEM000001",40);
-        Discount discount = new Discount(50);
+    public void should_create_a_good(){
 
-        good.addPromotion(discount);
-
+        Good good = new Good.Builder().barcode("ITEM000001").name("apple").price(40).promotion(new Discount(40)).build();
+        assertThat(good.barcode,is("ITEM000001"));
+        assertThat(good.name,is("apple"));
         assertThat(good.promotionList.size(),is(1));
+        assertThat(good.price,is(40.0));
+
     }
 }
