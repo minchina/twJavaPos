@@ -10,20 +10,9 @@ import java.util.List;
  */
 public class Good{
     public String barcode;
-    private double price;
-    private String name;
+    public double price;
+    public String name;
     public List<Promotion> promotionList = new ArrayList<>();
-
-
-    public Good(String barcode,double price){
-        this.barcode = barcode;
-        this.price = price;
-        this.name = barcode.substring(0,4)+barcode.substring(barcode.length()-1);
-    }
-
-    public void addPromotion(Promotion promotion){
-        promotionList.add(promotion);
-    }
 
     public double getPrice() {
         return price;
@@ -31,5 +20,47 @@ public class Good{
 
     public String getName(){
         return name;
+    }
+
+    public static class Builder {
+        public String barcode = null;
+        public double price = 0;
+        public String name = null;
+        public List<Promotion> promotionList = new ArrayList<>();
+
+
+        public Builder barcode(String val){
+            this.barcode = val;
+            return this;
+        }
+
+        public Builder price(double val){
+            this.price = val;
+            return this;
+        }
+
+        public Builder name(String val){
+            this.name = val;
+            return this;
+        }
+
+        public Builder promotion(Promotion ...promotions){
+            for (Promotion promotion : promotions){
+                this.promotionList.add(promotion);
+            }
+            return this;
+        }
+
+        public Good build(){
+            return new Good(this);
+        }
+
+    }
+
+    private Good(Builder builder){
+        barcode = builder.barcode;
+        price = builder.price;
+        name = builder.name;
+        promotionList = builder.promotionList;
     }
 }
