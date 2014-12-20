@@ -23,12 +23,12 @@ public class PrintTest {
         System.setOut(ps);
 
         Cart cart = new Cart();
-        Good good = new Good("ITEM000001",50);
+        Good good = new Good.Builder().barcode("ITEM000001").name("apple").price(50).build();
         cart.add(4,good);
 
         cart.printTicket();
 
-        assertEquals("购物明细（数量 单价 小计）\nITEM1   4   50   200\n总计金额（优惠前  优惠后  优惠差价）\n200   200   200    0\n",
+        assertEquals("购物明细（数量 单价 小计）\napple   4   50   200\n总计金额（优惠前  优惠后  优惠差价）\n200   200   200    0\n",
                 os.toString());
     }
 }
