@@ -12,8 +12,7 @@ import static org.junit.Assert.assertThat;
 public class GoodItemTest {
     @Test
     public void should_compute_promotion_price_after_add_goods(){
-        Good good = new Good("ITEM000001",40);
-        good.addPromotion(new Discount(40));
+        Good good = new Good.Builder().barcode("ITEM000001").price(40).promotion(new Discount(40)).build();
         GoodItem goodItem = new GoodItem(1,good);
 
         goodItem.updateItemPromotionPrice();
